@@ -55,7 +55,7 @@ class Client:
         position_left = bisect.bisect_left(update_times, p)
         if position_left < 2:
             datetime_ -= timedelta(days=1)
-        position = (position_left - 1) if position_left > 1 else 3
+        position = (position_left - 1) if position_left > 0 else 3
         return datetime_.strftime('%Y%m%d'), reference_hh[position]
 
     def download(
