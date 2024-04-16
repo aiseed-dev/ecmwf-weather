@@ -74,7 +74,7 @@ class Client:
             response = requests.get(url, stream=True)
             if response.status_code == 200:
                 with open(f, 'wb') as file:
-                    for chunk in response.iter_content(chunk_size=128):
+                    for chunk in response.iter_content(chunk_size=1048576):
                         file.write(chunk)
             else:
                 print(f"Error: {response.status_code} - {response.reason}")
